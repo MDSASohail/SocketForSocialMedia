@@ -1,9 +1,10 @@
 const { Socket } = require('socket.io')
 
 const io=require('socket.io')(8001,{
-    cors:{
-        origin:'http://localhost:3000',
-    }
+    cors: {
+        origin: "https://mdsasohail.github.io",
+        methods: ["GET", "POST"]
+      }
 })
 
 let users=[];
@@ -35,7 +36,7 @@ io.on("connection",(socket)=>{
         console.log("Receiver id is in Socket "+receiverId);
            const receiver= await findSocatId(receiverId);
            console.log(receiver);
-            io.to(receiver.socket).emit("getMessage",{senderId,text})
+            io.to(receiver?.socket).emit("getMessage",{senderId,text})
     })
 
     socket.on("disconnect",()=>{
