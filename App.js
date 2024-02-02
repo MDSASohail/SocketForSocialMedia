@@ -4,9 +4,11 @@ const io=require('socket.io')(8001,{
     cors:{
         origin: ["*"],
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
+        credentials: true,
+        headers:'Content-Type, Authorization',
     }
 })
+
 
 let users=[];
 
