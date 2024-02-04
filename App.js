@@ -1,13 +1,23 @@
 const { Socket } = require('socket.io')
 
 const io=require('socket.io')(8001,{
+<<<<<<< HEAD
     cors: {
         // origin: "https://mdsasohail.github.io",
         // origin:'http://localhost:3000',
         origin:'*',
         methods: ["GET", "POST"]
       }
+=======
+    cors:{
+        origin: ["*"],
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+        credentials: true,
+        headers:'Content-Type, Authorization',
+    }
+>>>>>>> fba169298682a7c54235ec3963a773a25cb809e6
 })
+
 
 let users=[];
 
